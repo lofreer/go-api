@@ -10,7 +10,7 @@ func getDeleteFuncStr(kind reflect.Type) string {
 	name := kind.Name()
 	str := `
 func Delete(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Query("id"))
+	id, _ := strconv.Atoi(c.PostForm("id"))
 `
 	str = fmt.Sprintf("%s\tvar %s %s\n", str, name, kind)
 	str = fmt.Sprintf("%s\n\tmodel.First(&%s,%s)\n", str, name, "id")

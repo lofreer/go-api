@@ -59,7 +59,7 @@ pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("password")), bcrypt.Def
 	utils.SuccessData(c, Admin) // 返回创建成功的信息
 }
 func Delete(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Query("id"))
+	id, _ := strconv.Atoi(c.PostForm("id"))
 	var Admin admin.Admin
 
 	model.First(&Admin,id)
@@ -79,11 +79,11 @@ func Info(c *gin.Context) {
 }
 func Paginate(c *gin.Context) {
 	var conditions []model.Condition
-	Email := c.PostForm("email")
+	Email := c.Query("email")
 	if Email != "" {
 		conditions = model.SetCondition(conditions,"email",fmt.Sprintf("%s%s", Email, "%"),"like")
 	}
-	Name := c.PostForm("name")
+	Name := c.Query("name")
 	if Name != "" {
 		conditions = model.SetCondition(conditions,"name",fmt.Sprintf("%s%s", Name, "%"),"like")
 	}

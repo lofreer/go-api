@@ -75,9 +75,9 @@ func SetRoute(kind interface{}) {
 	// start %s
 	api.POST("/%s/create",%s.Create)
 	api.POST("/%s/update",%s.Update)
-	api.GET("/%s/delete",%s.Delete)
+	api.DELETE("/%s/delete",%s.Delete)
 	api.GET("/%s/info",%s.Info)
-	api.POST("/%s/paginate",%s.Paginate)
+	api.GET("/%s/paginate",%s.Paginate)
 	// end %s
 }
 `

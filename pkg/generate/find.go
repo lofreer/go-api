@@ -12,7 +12,7 @@ func setSearch(data []map[string]mapValue) string {
 		for k, v := range mapVal {
 			lowerK := setToLower(k)
 			if v.searchInfo != "" {
-				str = fmt.Sprintf("%s\t%s := c.PostForm(\"%s\")\n", str, k, lowerK)
+				str = fmt.Sprintf("%s\t%s := c.Query(\"%s\")\n", str, k, lowerK)
 				str = fmt.Sprintf("%s\tif %s != \"\" {\n", str, k)
 				switch v.searchInfo {
 				case "=":
@@ -35,7 +35,7 @@ func setSearch(data []map[string]mapValue) string {
 }
 
 // 创建分类列表查询方法
-func getPaginateFuncStr(kind reflect.Type,fields []map[string]mapValue) string{
+func getPaginateFuncStr(kind reflect.Type, fields []map[string]mapValue) string {
 	str := `
 func Paginate(c *gin.Context) {
 	var conditions []model.Condition
@@ -56,7 +56,7 @@ func Paginate(c *gin.Context) {
 }
 
 // 创建详细数据方法
-func getInfoFuncStr(kind reflect.Type) string{
+func getInfoFuncStr(kind reflect.Type) string {
 	str := `
 func Info(c *gin.Context) {
 `

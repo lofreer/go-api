@@ -21,9 +21,9 @@ func ApiRouter(router *gin.Engine) {
 	// start admin
 	api.POST("/admin/create",admin.Create)
 	api.POST("/admin/update",admin.Update)
-	api.GET("/admin/delete",admin.Delete)
+	api.DELETE("/admin/delete",admin.Delete)
 	api.GET("/admin/info",admin.Info)
-	api.POST("/admin/paginate",admin.Paginate)
+	api.GET("/admin/paginate",admin.Paginate)
 	// end admin
 }
 
