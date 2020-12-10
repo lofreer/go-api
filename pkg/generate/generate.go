@@ -18,11 +18,13 @@ func SetCurd(kind interface{}) {
 	if err != nil {
 		panic(err)
 	}
+	// 完成后关闭文件
 	defer file.Close()
+	// 清空文件
 	os.Truncate(dir, 0)
 
 	// package
-	pkgStr := fmt.Sprintf("package %s%s", name, "\n")
+	pkgStr := fmt.Sprintf("package %s%s", name, "\n\n")
 	// import
 	impStr := getImportStr(name)
 	var fields []map[string]mapValue

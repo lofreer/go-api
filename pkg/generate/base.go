@@ -96,7 +96,7 @@ func getModelData(KindType reflect.Type, data []map[string]mapValue) string {
 		for k, v := range mapVal {
 			lowerK := setToLower(k)
 			if v.typeInfo == "pwd" {
-				pwd = `pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("%s")), bcrypt.DefaultCost)`
+				pwd = "\tpwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm(\"%s\")), bcrypt.DefaultCost)"
 				pwd = fmt.Sprintf(pwd, lowerK)
 				param = fmt.Sprintf("%s\t%s.%s = string(%s)\n", param, name, k, "pwd")
 			} else {

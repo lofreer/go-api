@@ -17,7 +17,6 @@ func ApiRouter(router *gin.Engine) {
 	auth.Use(middleware.ApiAuth())          // 登录认证中间件
 	auth.GET("/admin/auth", admin.AuthInfo) // 登录用户信息
 
-
 	// start admin
 	api.POST("/admin/create",admin.Create)
 	api.POST("/admin/update",admin.Update)

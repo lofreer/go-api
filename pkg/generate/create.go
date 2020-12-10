@@ -22,7 +22,7 @@ func Create(c *gin.Context) {
 	}`
 	str = fmt.Sprintf("%s\n%s\n", str, data)
 
-	str = fmt.Sprintf("%s\tvar %s %s",str,KindType.Name(),KindType)
+	str = fmt.Sprintf("%s\tvar %s %s", str, KindType.Name(), KindType)
 
 	data = getModelData(KindType, fields)
 	str = fmt.Sprintf("%s\n%s", str, data)

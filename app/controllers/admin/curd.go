@@ -1,4 +1,5 @@
 package admin
+
 import (
 		"fmt"
 		"github.com/gin-gonic/gin"
@@ -23,7 +24,7 @@ func Create(c *gin.Context) {
 		return
 	}
 	var Admin admin.Admin
-pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("password")), bcrypt.DefaultCost)
+	pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("password")), bcrypt.DefaultCost)
 	Admin.Email = c.PostForm("email")
 	Admin.Password = string(pwd)
 	Admin.Name = c.PostForm("name")
@@ -51,7 +52,7 @@ func Update(c *gin.Context) {
 		return
 	}
 
-pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("password")), bcrypt.DefaultCost)
+	pwd, _ := bcrypt.GenerateFromPassword([]byte(c.PostForm("password")), bcrypt.DefaultCost)
 	Admin.Email = c.PostForm("email")
 	Admin.Password = string(pwd)
 	Admin.Name = c.PostForm("name")
